@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue路由</title>
+</head>
+<style>
+    .router-link-active{
+        background: #ccc;
+        padding: 5px;
+        text-decoration: none;
+    }
+</style>
+<body>
+	 <div id="box">
+        <div>
+            <router-link to="/home">主页</router-link>
+            <router-link to="/news">新闻</router-link>
+            <router-link to='/about'>关于</router-link>
+            <!-- router-link 会守卫点击事件，让浏览器不再重新加载页面 -->
+        </div>
+        <div>
+            <router-view></router-view>
+            <!-- 渲染路径匹配到的视图组件 -->
+        </div>
+    </div>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+	<script>
+        //组件
+        const Home = {
+            template:'<h3>我是主页</h3>'
+        };
+        const News = {
+            template:'<h3>我是新闻</h3>'
+        }
+        const About = {
+            template:'<h3>我是关于</h3>'
+        }
+        //配置路由
+        const routes = [ 
+            {path:'/home', component :Home},
+            {path:'/news', component:News},
+            {path:'/about',component:About},
+            //重定向
+            {path:'*',redirect:'/home'}
+        ]
+        //生成路由实例
+        const router = new VueRouter({
+            routes
+        })
+        //挂载到vue上
+        new Vue({
+            router,
+            el:'#box'
+        })
+    </script>
+</body>
+</html>
