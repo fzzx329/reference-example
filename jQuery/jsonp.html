@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSONP跨域</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    
+</head>
+<body>
+<div id="divCustomers"></div>
+<script>
+$.getJSON("https://www.hzbiz.net/1203/api/ip.php", function(data) {
+    console.log(data)
+    console.log(data.data)
+    $('#divCustomers').html(data.data.ip); 
+});
+</script>
+</body>
+</html>
