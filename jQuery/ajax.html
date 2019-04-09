@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$.get("url",function(text){
+            console.log(text);
+        });
+        //$.post(URL,data,callback); url:地址 data:要上传的数据  callback:回调函数
+        $.post("url",data,function(text){
+            console.log(text);
+        });
+        //$.post("api/restersave.php","headline="+$("#headline").val()+"&content="+$("#content").val()+"&fl="+x+"&writer="+$("#writer").val()+"&t="+hqsj()+"&action=1",function(text,status,xhr){console.log(text,status,xhr);});
+        $.ajax({
+		    type:"get",
+		    url:"",
+		    function(text){
+		        console.log(text);
+		    }
+		});
+		$.ajax({
+		    type:"post",
+		    url:"",
+		    data:"",
+		    function(text){
+		        console.log(text);
+		    }
+		});
+		$.getJSON("url",function(text){
+            console.log(text);
+        });
+		//==================================
+		$.getScript("test.js",function(){
+            setTimeout(function(){
+                alert(2)
+            },2000)
+        });
+        //引用js文件
+	</script>
+</body>
+</html>
